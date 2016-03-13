@@ -1,0 +1,106 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+
+body {
+	height:100%;
+	
+	font-family: "Helvetica Neue", "Helvetica", sans-serif;
+	background-color: #504F7F
+
+	
+}
+
+html {
+	min-height:100%;
+}
+#nav {
+	color:black;
+	position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+    z-index:-1;
+	width:250px;
+	background-color:white;
+}
+
+#nav h1 {
+	margin: auto;
+	font-weight: 600;
+	font-size: 3em;
+	padding-left: 25px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#navSpacer {
+	height:25px;
+}
+
+#nav h2 {
+	font-size: 1.875em;
+	font-weight: 500;
+	padding: 14px 25px;
+	
+}
+
+
+.navDiv {
+	width: 100%;
+	height: 3px;
+	background-color: black;
+}
+.navHover {
+	color: white;
+	background-color: black;
+	
+}
