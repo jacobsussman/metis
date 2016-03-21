@@ -3,7 +3,8 @@
 
 $(document).ready(function () {
 	"use strict";
-	$('#nav > a').hover(function () {
-		$(this).toggleClass('navHover');
+	
+	$("h2").hover(function () {
+		$(this).toggleClass("navHover");
 	});
 });
