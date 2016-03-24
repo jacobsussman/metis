@@ -4,7 +4,22 @@
 $(document).ready(function () {
 	"use strict";
 	
-	$("h2").hover(function () {
-		$(this).toggleClass("navHover");
-	});
+//	$(".navIcon").hover(function () {
+//		$(this).toggleClass("navHover");
+//	});
+//	
+//	
+	
+	
+    $("img")
+        .mouseover(function () {
+            var src = $(this).attr("src").match(/[^\.]+/) + "over.svg";
+            $(this).attr("src", src);
+        })
+        .mouseout(function () {
+            var src = $(this).attr("src").replace("over.svg", ".svg");
+            $(this).attr("src", src);
+        });
+
+	
 });
