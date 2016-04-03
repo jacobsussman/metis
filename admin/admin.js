@@ -11,15 +11,15 @@ $(document).ready(function () {
 //	
 	
 	
-    $("img")
-        .mouseover(function () {
-            var src = $(this).attr("src").match(/[^\.]+/) + "over.svg";
-            $(this).attr("src", src);
-        })
-        .mouseout(function () {
-            var src = $(this).attr("src").replace("over.svg", ".svg");
-            $(this).attr("src", src);
-        });
+//    $("img")
+//        .mouseover(function () {
+//            var src = $(this).attr("src").match(/[^\.]+/) + "over.svg";
+//            $(this).attr("src", src);
+//        })
+//        .mouseout(function () {
+//            var src = $(this).attr("src").replace("over.svg", ".svg");
+//            $(this).attr("src", src);
+//        });
 
 	
 });
