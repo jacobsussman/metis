@@ -117,7 +117,7 @@ h1 {
     padding-top: 50px;
 }
 
-.clientbubble {
+.coachbubble {
     background-color: white;
     border: 1px none;
     border-radius: 10px;
@@ -130,7 +130,7 @@ h1 {
     align-self: flex-end;
 }
 
-.coachbubble {
+.clientbubble {
     background-color: white;
     border: 1px none;
     border-radius: 10px;
@@ -141,6 +141,7 @@ h1 {
     padding-right: 5%;
     margin-top: 10px;
     margin-bottom: 10px;
+    align-self: flex-start;
 }
 
 img {
