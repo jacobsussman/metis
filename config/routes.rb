@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   
-  get 'users/new'
   
   root 'metis#home'
-  
+  get 'signup' => 'users#new'
   get 'metis/home'
-  get 'metis/help'
+  get 'help' => 'metis#help'
+  
+  get 'login' => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   
   resources :users
 end

@@ -1,7 +1,6 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
   
-  
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
       <%= f.label :name %>
@@ -12,7 +11,7 @@
   
      
       <%= f.label :company %>
-      <%= f.email_field :company %>
+      <%= f.text_field :company %>
   
 
       <%= f.label :password %>
