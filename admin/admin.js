@@ -4,6 +4,33 @@
 $(document).ready(function () {
 	"use strict";
 	
+
+	$( ".topBox h5" ).hover(function() {
+    	$( this ).css("text-decoration", "underline");
+	}, function() {
+    	$( this ).css("text-decoration", "none");
+	});
+	$( ".numTxt1" ).hover(function() {
+    	$( this ).css("text-decoration", "underline");
+	}, function() {
+    	$( this ).css("text-decoration", "none");
+	});
+	$( ".numTxt2" ).hover(function() {
+    	$( this ).css("text-decoration", "underline");
+	}, function() {
+    	$( this ).css("text-decoration", "none");
+	});
+	$( ".numTxt3" ).hover(function() {
+    	$( this ).css("text-decoration", "underline");
+	}, function() {
+    	$( this ).css("text-decoration", "none");
+	});
+	$( ".numTxt4" ).hover(function() {
+    	$( this ).css("text-decoration", "underline");
+	}, function() {
+    	$( this ).css("text-decoration", "none");
+	});
+	
 //	$(".navIcon").hover(function () {
 //		$(this).toggleClass("navHover");
 //	});
