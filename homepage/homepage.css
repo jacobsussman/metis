@@ -102,6 +102,8 @@ h2 {
 .about {
     padding-top: 50px;
     padding-bottom: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -154,19 +156,56 @@ h4 {
     margin-right: 100px;
 }
 
-.footer {
-    background-color: #e5cce5;
-    padding-left: 150px;
-    padding-right: 150px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+.howto {
+    background-color: #ffffff;
+    height: 500px;
     display: flex;
-    flex-direction: row
     justify-content: space-around;
     align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
+
 h5 {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+
+h6 {
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+
+}
+
+#promises {
+    width: 300px;
+    color: #504F7F;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#promisespic {
+    width: 80px;   
+    margin: auto;
+}
+
+.footer {
+    background-color: #e5cce5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    height: 250px;
+    padding-top: 100px;
+}
+
+h7 {
     text-align: left;
     font-size: 1em;
     width: 600px;
@@ -176,7 +215,6 @@ h5 {
     width: 200px;
     font-size: 1em;
     height: 60px;
-    margin: auto;
     margin-top: 30px;
     text-align: center;
 }
