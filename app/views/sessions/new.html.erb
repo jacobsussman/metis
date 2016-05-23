@@ -1,20 +1,56 @@
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<!doctype html>
+<html>
+<head>
+   <%= stylesheet_link_tag "metis", "data-turbolinks-track" => true %>
+ <%= stylesheet_link_tag "client", "data-turbolinks-track" => true %>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+</head>
+ 
+<body class="client c2">
+    
+    <div class="header">
+       <%= image_tag "metisLogo.svg", class: "logo rel bot10" %>
+<!--
+        <div class="rel top5 headerRight">
+            <p class="settings">Settings</p>
+            <img class="gear" src="../media/img/gear.svg">
+        </div>
+-->
+    </div>
+    <div class="pad50"></div>
+    <div class="body">
+        
+        <div class="form">
+            <h1>Login</h1>
+            <p>Log in to speak with your coach!</p>
 
     <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, placeholder: "Email" %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, placeholder: "Password" %>
 
       <%= f.label :remember_me do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+       
+       
+        <span style="font-family: Helvetica Neue;">Remember me </span>
+        
       <% end %>
       
-      <%= f.submit "Log in" %>
+      
+       <div class="buttons">
+                <h5 class="padR20 blue start"> 
+                
+                <%= f.submit "Go!", class: "padR20 blue start" %> 
+                
+                </h5>
+            </div>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+
+    
+</body>
+</html>

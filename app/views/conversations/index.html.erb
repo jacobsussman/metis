@@ -1,0 +1,20 @@
+<!--user would only have one conversation so this page will be redundant-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<h1> All Conversations </h1>
+
+<% @conversations.each do |conversation| %>
+
+  <div>
+    
+    <%= link_to conversation.subject, conversation_path(conversation) %>
+    
+  </div>
+  
+<% end %>
+
+<!--change for metis-->
+
+<%= link_to "New Conversation", new_conversation_path %>
+

@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+	
+<head>
+<title>Client Interface</title>
+<link rel="stylesheet" href="../metis.css">
+<link rel="stylesheet" href="client.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body class="clientChat">
+    <div class="borderHolder">
+        <div class="header">
+             <%= image_tag "metisLogo.svg", class: "chatLogo rel bot10" %>
+            <div class="rel top5 headerRight">
+                <p class="settings">Settings</p>
+                <%= image_tag "gear.svg", class: "gear" %>
+            </div>
+        </div>
+    </div>
+    
+<!-- What you see if you're just a regular user-->
+ <% if current_user.coach != true %>
+    <div class="sumHolder">
+    <div class="summary">
+        
+        <div class="center">
+             <%= image_tag "coachFace.png", class: "sumPic" %>
+        </div>
+        
+        <h1>Welcome to Metis!</h1>
+        <p>Metis is your personalized source of professional guidance and advice.</p>
+        <p>My name is Nancy Halpern and I am a leadership coach with 20 years of experience in executive consulting. I  can offer you guidance on a variety of professional matters.</p>
+        <p>Our conversation is strictly confidential so you can feel comfortable openly sharing your concerns with me.</p>
+    </div>
+    </div>
+   
+<% elsif current_user.coach == true %>
+ 
+  <div class="listHolder">
+        <div class="list"> 
+
+    <% current_user.mailbox.conversations.each do |conversation| %>
+
+            <!--there is also a chatCell highlight class-->
+           <%= link_to  conversation_path(conversation) do %>
+            <div class= "chatCell" >
+          
+                <div class="titleRow">
+                   
+                    <h1> <%= conversation.subject %> </h1>
+                    
+                   <!-- Rails has wrong time zone atm-->
+                    <h2>last active <%= conversation.updated_at.strftime("%m/%d/%y %I:%M %p") %></h2>
+                    
+                </div>
+                
+                <h3> <%= conversation.last_message.body%> </h3> 
+                
+            </div>
+            <% end %>
+
+    <% end %>
+        </div>
+    </div>
+    
+<% end %>
+    
+    
+    <div class="convo">
+        <div class="convoHolder">
+            
+           <!-- Change this once ajax is in place-->
+        <div class = "animated fadeIn"> 
+        
+            <div class="leftBlock">
+                <div class="imgHolder">
+                     <%= image_tag "coachFace.png", class: "chatFace" %>
+                </div>
+                <div class="coachBlock">
+                    <div class="block">
+                        <div class="left greyChat chat1">
+                            <p>Hi there!</p>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="left greyChat chat2">
+                            <p>Is there anything you would like to talk with me about?</p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            
+        
+            
+            <% @conversation.receipts_for(current_user).each do |receipt| %>
+               
+               <!--Used to remove the first message since mailboxer requires a message for the first message-->
+            <% if receipt.message.body == "PWd3HXHjJzwz5cyINYBe5NWElfbl9R" %>
+              
+             <% else %>   
+                     <% if receipt.message.sender.coach != true %>         
+                    <div class="rightBlock">
+                        <div class="txtBlock">   
+                            <div class="block">
+                                <div class="right blueChat chat3">
+                                    <p>  <%= receipt.message.body %> </p>
+                                    
+                                </div>
+                            </div> 
+                        </div>    
+                    </div>
+                    
+                    <% elsif receipt.message.sender.coach == true %>
+                  
+                     <div class="leftBlock">
+                        <div class="imgHolder">
+                             <%= image_tag "coachFace.png", class: "chatFace" %>
+                        </div>
+                        <div class="coachBlock">
+                            <div class="block">
+                                <div class="left greyChat chat1">
+                                    <p> <%= receipt.message.body %> </p>
+                                </div>
+                            </div>
+                            
+                            <!--<div class="block">
+                                <div class="left greyChat chat2">
+                                    <p>Is there anything you would like to talk with me about?</p>
+                                </div>
+                            </div>  
+                        </div>-->
+                        
+                        </div>
+                    </div>
+                    
+                    
+                    <% end %>
+                <% end %>
+            <% end %>
+
+        </div>
+        </div>
+        
+        
+        <!--For submitting a new message to the conversation-->
+        
+        <div class="chatForm">
+            <%= form_tag conversation_messages_path(@conversation), method: :post do %> 
+            
+            <% if current_user.coach != true %>
+            <%= text_area_tag :body,'', autocomplete: "off", required: true, class: "chatBox", placeholder: "Write Nancy a message..." %>
+            <% else %>
+            <%= text_area_tag :body,'', autocomplete: "off", required: true, class: "chatBox", placeholder: "Write the client a message..." %>
+            <% end %>
+            
+            <div class="chatButton">
+                
+                <p class="submit"> 
+                <%= submit_tag "Submit", class: "submit" %>
+                </p>
+                
+            </div>
+        </div>
+            <% end %>
+        
+    </div>
+
+    
+    
+    <!--Leaves a cell's highlight on, currently NOT WORKING-->
+    <script>
+        
+        $( ".chatCell" ).click(function() {
+        $(".list>.cellHighlight").removeClass("cellHighlight");
+        $( this ).addClass( "cellHighlight" );
+    });
+        
+    </script>
+    
+    
+</body>
+</html>
